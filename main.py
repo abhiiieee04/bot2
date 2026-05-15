@@ -110,9 +110,11 @@ async def router(event):
             await event.respond("⚠️ Please enter a valid number.")
 
 # 4. BUTTON CALLBACKS
-@bot.on(events.CallbackQuery(from_users=config.ADMIN_IDS))
+@bot.on(events.CallbackQuery())
 async def handle_buttons(event):
-    await event.answer() 
+    if event.sender_id not in config.ADMIN_IDS: return
+    
+    await event.answer()
     if not worker.is_connected(): await worker.connect()
     
     if event.data == b'pre_join':
