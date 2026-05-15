@@ -260,7 +260,7 @@ async def universal_handler(event):
         )
 
 # ── 5. EXECUTION ENGINE (BUTTON CALLBACKS) ─────────────────────────────────────
-@bot.on(events.CallbackQuery(from_users=ADMIN_IDS))
+@bot.on(events.CallbackQuery())
 async def button_handler(event):
     data = event.data.decode()
     groups = broadcast_data["groups"]
