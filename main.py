@@ -23,8 +23,8 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN")
 ADMIN_IDS = [int(i.strip()) for i in os.environ.get("ADMIN_ID").split(",")]
 
 # ── 2. CLIENT SETUP ────────────────────────────────────────────────────────────
-bot = TelegramClient('controller_bot', API_ID, API_HASH)
-worker = TelegramClient('ptmc_worker', API_ID, API_HASH)
+bot = TelegramClient('data/controller_bot', API_ID, API_HASH)
+worker = TelegramClient('data/ptmc_worker', API_ID, API_HASH)
 
 # Global State Management
 user_state = {"mode": None}
